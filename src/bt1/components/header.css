@@ -1,0 +1,21 @@
+.Header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.iteam{
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iteam1{
+    background-color: blue;
+    color: #fff;
+}
+.tittle{
+    background-color: blue;
+}
