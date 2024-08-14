@@ -1,6 +1,6 @@
 
 import { createSlice } from '@reduxjs/toolkit'
-import { notifi, Toast } from '../../utills/heple';
+import { notifi } from '../../utills/heple';
 
 const cart = JSON.parse(localStorage.getItem("cart")) ?? [];
 
@@ -10,6 +10,7 @@ const cartSlice = createSlice({
     cart: [...cart]
   },
   reducers: {
+    
     // them san pham vao gio hang
     addtoCart(state, action) {
       let index = state.cart.findIndex((item) => item.id === action.payload.id)
@@ -49,30 +50,33 @@ const cartSlice = createSlice({
     },
 
     // xoa san pham
-    decrementQuantity: (state, action) => {
-      const productId = action.payload;
+    decreaseQuantity(state, action) {
+      const id = action.payload;
+      let cart = [...state.cart];
+      const index = cart.findIndex((item) => item.id === id);
 
-      const foundProductExist = state.cart.findIndex(
-        (product) => product.id === productId
-      );
+      if (index !== -1) {
+        cart[index].quantity -= 1;
+      }
 
-      if (foundProductExist !== -1) {
-        if (state.cart[foundProductExist].quantity === 1) {
-          const confirmDelete = window.confirm("Bạn có muốn xóa sản phẩm này không?");
-          
-          if (confirmDelete) {
-            state.cart.splice(foundProductExist, 1);
-          }
-        } else {
-          state.cart[foundProductExist].quantity--;
-        }
+      state.cart = cart;
+      localStorage.setItem("cart", JSON.stringify(cart));
+    },
 
-      localStorage.setItem('cart', JSON.stringify(state.cart));
-    }},
+    removeItem(state, action) {
+      const id = action.payload;
+      let cart = [...state.cart];
+      const index = cart.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
+      state.cart = cart;
+      localStorage.setItem("cart", JSON.stringify(cart));
+    },
 
     
   }
 })
 
-export const { addtoCart, deleteCart, increase, decrementQuantity } = cartSlice.actions;
+export const { addtoCart, deleteCart, increase, decreaseQuantity, removeItem } = cartSlice.actions;
 export default cartSlice.reducer

@@ -28,9 +28,9 @@ function Hearder() {
                                 <Link to={'/bt5/cart'} className='relative cursor-pointer'>
                                     <ShoppingCartIcon />
 
-                                    <div className='absolute -top-[30%] -right-[1%] w-3 h-5 rounded-full bg-red-500 text-white text-center'>
+                                    {/* <div className='absolute -top-[30%] -right-[1%] w-3 h-5 rounded-full bg-red-500 text-white text-center'>
                                         {cart.length ?? 0}
-                                    </div>
+                                    </div> */}
                                 </Link>
                             </div>
                         </nav>

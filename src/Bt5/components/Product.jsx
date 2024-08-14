@@ -36,7 +36,7 @@ function Product() {
       id : "4",
       imgURL: "https://mediaservice.audi.com/media/fast/H4sIAAAAAAAAAFvzloG1tIiBOTrayfuvpGh6-m1zJgaGigIGBgZGoDhTtNOaz-I_2DhCHsCEtzEwF-SlMwJZKUycmbmJ6an6QD4_I3taTmV-aUkxO0grD1PO-tgsqbnzjhoHbvlx6n3T-UXrvjKwAnUx6gEJ5jtAgu8akODYxAAmQeaFgIgWEJ_JkpmBgbUCyIhkAAE-vtKinILEosRcvfLMlJIMQQ0DIoEwu4triKOnTzAAsnbrAOkAAAA?wid=550",
       name: "Audi e-tron",
-      price: "Đang lên giá",
+      price: 1000000000,
     },
     {
       id : "5",

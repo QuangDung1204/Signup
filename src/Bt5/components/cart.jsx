@@ -1,16 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCart, increase, decrementQuantity } from '../redux/slice/cartSlice';
+import { increase, decreaseQuantity, removeItem } from '../redux/slice/cartSlice';
 import Hearder from './Header';
+import Swal from 'sweetalert2';
 
 function Cart() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-
-
-  const removeCart = (index) => {
-    dispatch(deleteCart(index))
-  }
 
 
   let totalAmount = function () {
@@ -23,7 +19,44 @@ function Cart() {
 
   const SHIPPING = 500000;
 
+  const handleDecreaseQuantity = (id, quantity) => {
+    if (quantity > 1) {
+      dispatch(decreaseQuantity(id));
+    } else {
+      Swal.fire({
+        title: 'Bạn có muốn xóa sản phẩm này?',
+        text: "Sản phẩm sẽ xóa khỏi giỏ hàng!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Có',
+        cancelButtonText: 'Hủy'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(removeItem(id));
+        } else {
+        }
+      });
+    }
+  };
 
+  const handleRemoveItem = (id) => {
+    Swal.fire({
+      title: 'Bạn có muốn xóa sản phẩm này?',
+      text: "Sản phẩm sẽ xóa khỏi giỏ hàng!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Có',
+      cancelButtonText: 'Hủy'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeItem(id));
+      }
+    });
+  };
 
   return (
     <div>
@@ -58,7 +91,7 @@ function Cart() {
 
                   <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div class="flex items-center border-gray-100">
-                      <button onClick={() => { dispatch(decrementQuantity(product.id)) }} class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </button>
+                      <button onClick={() => handleDecreaseQuantity(product.id, product.quantity)} class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </button>
 
                       <div className="h-8 w-8 pt-1.5 border bg-white text-center text-xs outline-none">
                         {product.quantity}
@@ -69,7 +102,7 @@ function Cart() {
                     <div class="flex items-center space-x-4">
                       <p class="text-sm"></p>
 
-                      <button onClick={() => removeCart(index)}>
+                      <button onClick={() => handleRemoveItem(product.id)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                       </button>
