@@ -23,8 +23,12 @@ function Hearder() {
                                 <a href="/bt4" className="text-sm font-semibold leading-6 text-gray-900">Chăm sóc khách hàng</a>
                                 <a href="/bt4/about" className="text-sm font-semibold leading-6 text-gray-900">Liên hệ chúng tôi</a>
                             </div>
+
                             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                                <div className="text-sm font-semibold leading-6 text-gray-900">Đăng Nhập</div>
+                                <a href='/bt5/Dangnhap' className="text-sm font-semibold leading-6 text-gray-900">Đăng Nhập</a>
+                                
+
+                                <a href='/bt5/dangky' className="pl-2 text-sm font-semibold leading-6 text-gray-900">Đăng Ký</a>
                                 <Link to={'/bt5/cart'} className='relative cursor-pointer'>
                                     <ShoppingCartIcon />
 

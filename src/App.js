@@ -9,6 +9,8 @@ import Home from "./Bt4/Pages/home";
 import BT2 from "./BT2/bt2";
 import Cart from "./Bt5/components/cart";
 import Web from "./myWeb/web";
+import Dangnhap from "./Bt5/components/dangnhap";
+import Dangky from "./Bt5/components/dangky";
 
 
 function App() {
@@ -23,8 +25,10 @@ function App() {
         <Route path="product" element={<Product />} />
       </Route>
       <Route path="/bt5" element={<BT5 />} />
-
+      <Route path="/bt5/dangnhap" element={<Dangnhap />} />
+      <Route path="/bt5/dangky" element={<Dangky />} />
       <Route path="/bt5/cart" element={<Cart />} />
+
 
       <Route path="/my-web" element={<Web />} />
     </Routes>

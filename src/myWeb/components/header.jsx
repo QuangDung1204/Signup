@@ -1,38 +1,42 @@
 import React from 'react'
-
+import SearchIcon from '@mui/icons-material/Search';
+import DevicesIcon from '@mui/icons-material/Devices';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 function HeaderWeb() {
     return (
         <div>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900">
+            <nav className="bg-white ">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="" className="h-8" alt="Logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">logo</span>
+                    <a className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t39.30808-6/453905769_1627967981395959_2570081000420369037_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=sMSnqHTtn6UQ7kNvgG9bmjY&_nc_ht=scontent.fsgn8-3.fna&oh=00_AYDbdrz4Khs1d4MBPcq4B5CIQZ4uTnjTYW5Fdb4w85l_Ig&oe=66C3C4FE" className="h-8" alt="Logo" />
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap  text-black">Quang Dũng</span>
                     </a>
-                    <button data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                        <span className="sr-only">Open main menu</span>
-                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
+
+
+                    <div className="w-[550px] h-[40px] bg-gray-200 flex rounded-xl">
+                        <div className="text-slate-400 pt-2 tetx-xs w-full">Nhập sản phẩm bạn muốn tìm.</div>
+                        <div className="pt-1 pl-20"><SearchIcon/></div>
+                    </div>
+                    
+
                     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-                        <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                            <li>
-                                <a href="" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
-                            </li>
-                            <li>
-                                <a href="" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-                            </li>
-                            <li>
-                                <a href="" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-                            </li>
-                            <li>
-                                <a href="" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                            </li>
-                        </ul>
+                        <div className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                            <div className="flex">
+                                <div className="size-7"><DevicesIcon/></div>
+                               <div className="block text-xl  text-black">
+                                    Cấu hình PC
+                                </div> 
+                            </div>
+                            
+                            <div className="">
+                                <NotificationsIcon/>
+                            </div>
+                            <div className="flex">
+                                <div className=""><ShoppingCartIcon/></div>
+                                <div className="text-xl">Giỏ hàng</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
